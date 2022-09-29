@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<meta charset="utf-8">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <script language="javascript" type="text/javascript" src="js/jquery/jquery-1.11.0.js"></script>  
+    <script language="javascript" type="text/javascript" src="js/d3/d3.v3.min.js"></script> 
+    <script language="javascript" type="text/javascript" src="js/websocket/websocket.js"></script>  
+    <script language="javascript" type="text/javascript" src="js/neo4j/neo4jexample.js"></script> 
+
+    <head>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
+        <title>Test Page for the Nginx HTTP Server on Fedora UFFA</title>
+    </head>
+
+    <body>
+        <h1>Welcome to <strong>nginx</strong> on Fedora! Banzai!</h1>
+        <p>
+            <button id=btn_1 onclick="openWebSocket()">Open WebSocket</button>
+            <button id=btn_2 onclick="closeWebSocket()">Close WebSocket</button>
+            <button id=btn_3 onclick="sendMessageToWebSocket()">Send message to WebSocket</button>
+        </p>
+        <p><input type="text" id="txt_1" value="message to send"></p>
+        <p><button id=btn_4 onclick="creategraph()">Create Graph</button></p>
+        <p><button id=btn_5 onclick="sendToJetty()">Send To Jetty</button></p>
+        <p><button id=btn_6 onclick="bindImages()">bindImages</button></p>
+        <div id="message"> </div>
+        <div class="result"></div>
+        <div id="body"></div>
+    </body>
+
+
+
+
+
+
+
+
+</html>
