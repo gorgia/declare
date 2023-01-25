@@ -8,7 +8,7 @@ package keyron.declare.model.card;
  *
  * @author andrea
  */
-public enum CardSuits implements Suit{
+public enum CardSuits{
     CLUBS('C'), DIAMONDS('D'), HEARTS('H'), SPADES('S');
     private char suit;
     
