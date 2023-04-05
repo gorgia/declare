@@ -4,6 +4,6 @@ import keyron.declare.model.bid.BiddingSystemEntity;
 import org.springframework.data.neo4j.repository.ReactiveNeo4jRepository;
 import reactor.core.publisher.Mono;
 
-public interface BiddingSystemRepository extends ReactiveNeo4jRepository<BiddingSystemEntity, String> {
+public interface BiddingSystemRepository extends ReactiveNeo4jRepository<BiddingSystemEntity, Long> {
     Mono<BiddingSystemEntity> findOneByName(String name);
 }

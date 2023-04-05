@@ -1,5 +1,6 @@
 package keyron.declare.controller;
 
+
 import keyron.declare.model.bid.BiddingSystemEntity;
 import keyron.declare.neo4jrepositories.BiddingSystemRepository;
 import org.springframework.http.MediaType;
@@ -20,8 +21,12 @@ public class BiddingSystemRequestController {
 
     @GetMapping(value = { "", "/" }, produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public List<BiddingSystemEntity> getBiddingSystems() {
-        BiddingSystemEntity biddingSystemEntity1 = new BiddingSystemEntity(1L, "Naturale");
-        BiddingSystemEntity biddingSystemEntity2 = new BiddingSystemEntity(2L, "Quinta Nobile");
+        BiddingSystemEntity biddingSystemEntity1 = new BiddingSystemEntity();
+        biddingSystemEntity1.setName("Naturale");
+        biddingSystemEntity1.setId(1L);
+        BiddingSystemEntity biddingSystemEntity2 = new BiddingSystemEntity();
+        biddingSystemEntity2.setName("Quinta Nobile");
+        biddingSystemEntity2.setId(2L);
         return Arrays.asList(biddingSystemEntity1, biddingSystemEntity2);
     }
 
