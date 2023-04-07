@@ -3,11 +3,10 @@ package keyron.declare.controller;
 
 import keyron.declare.model.bid.BiddingSystemEntity;
 import keyron.declare.neo4jrepositories.BiddingSystemRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.Arrays;
@@ -17,6 +16,7 @@ import java.util.List;
 @RequestMapping("/biddingsystems")
 public class BiddingSystemRequestController {
 
+    @Autowired
     private BiddingSystemRepository biddingSystemRepository;
 
     @GetMapping(value = { "", "/" }, produces = MediaType.TEXT_EVENT_STREAM_VALUE)
@@ -33,6 +33,18 @@ public class BiddingSystemRequestController {
     @GetMapping("/by-title")
     Mono<BiddingSystemEntity> byTitle(@RequestParam String title) {
         return  biddingSystemRepository.findOneByName(title);
+    }
+
+
+    @GetMapping("/all")
+    Flux<BiddingSystemEntity> getAll() {
+        return biddingSystemRepository.findAll();
+    }
+
+
+    @PostMapping("/save")
+    public Mono<BiddingSystemEntity> create(@RequestBody BiddingSystemEntity biddingSystemEntity) {
+        return this.biddingSystemRepository.save(biddingSystemEntity);
     }
 
 

@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class BiddingSystemRepositoryTest {
 
     @Autowired
-    BiddingSystemRepository biddingSystemRepository;
+    private BiddingSystemRepository biddingSystemRepository;
 
     @Test
     public void insertNode(@Autowired Neo4jClient client) {
@@ -22,6 +22,14 @@ class BiddingSystemRepositoryTest {
         biddingSystemEntity.setName("Fiori Torino");
         Mono<BiddingSystemEntity> monoBiddingSystemEntity = biddingSystemRepository.save(biddingSystemEntity);
 
+        assertThat(monoBiddingSystemEntity).isNotNull();
+    }
+
+
+    @Test
+    public void findNode(@Autowired Neo4jClient client) {
+        String biddingSystemNameToFind = "Fiori Torino";
+        Mono<BiddingSystemEntity> monoBiddingSystemEntity = biddingSystemRepository.findOneByName(biddingSystemNameToFind);
         assertThat(monoBiddingSystemEntity).isNotNull();
     }
 
